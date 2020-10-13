@@ -6,7 +6,6 @@ import shutil
 from random import randint
 from reportlab.pdfgen.canvas import Canvas
 from svglib.svglib import svg2rlg
-from discord_webhook import DiscordWebhook, DiscordEmbed
 
 
 config_name = 'config.ini'
@@ -60,6 +59,7 @@ shutil.rmtree(os.path.join(os.curdir, name))
 
 # Upload to discord if webhook in config
 if 'DISCORD' in config and config['DISCORD']['webhook'] != '':
+    from discord_webhook import DiscordWebhook, DiscordEmbed
     print("Uploading to Discord..")
     webhook = DiscordWebhook(config['DISCORD']['webhook'])
     embed = DiscordEmbed(title="Nouvelle présentation!", color=randint(100000, 999999))
