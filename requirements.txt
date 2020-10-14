@@ -1,0 +1,2 @@
+svglib
+discord_webhook
